@@ -1,3 +1,4 @@
-class Account < ApplicationRecord
-  belongs_to :supplier
-end
+
+  class Account < ApplicationRecord
+    belongs_to :supplier
+  end
