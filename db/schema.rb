@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_17_142629) do
+ActiveRecord::Schema.define(version: 2018_09_18_063918) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
@@ -44,6 +44,16 @@ ActiveRecord::Schema.define(version: 2018_09_17_142629) do
     t.index ["author_id"], name: "index_books_on_author_id"
   end
 
+  create_table "contracts", force: :cascade do |t|
+    t.date "contract_date"
+    t.integer "player_id"
+    t.integer "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["player_id"], name: "index_contracts_on_player_id"
+    t.index ["team_id"], name: "index_contracts_on_team_id"
+  end
+
   create_table "doctors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -71,6 +81,12 @@ ActiveRecord::Schema.define(version: 2018_09_17_142629) do
     t.index ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable_type_and_imageable_id"
   end
 
+  create_table "players", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -78,6 +94,12 @@ ActiveRecord::Schema.define(version: 2018_09_17_142629) do
   end
 
   create_table "suppliers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
